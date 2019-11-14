@@ -30,6 +30,18 @@ git config core.sparseCheckout true
 echo "/Infrastructure" > .git/info/sparse-checkout
 git pull origin master
 
+# Check if Docker is installed and running
+echo "Cheking if Docker is running.."
+sudo systemctl status docker | grep 'running' &> >/dev/null # 2>&1
+# If return value is 0, then it is installed
+if [ $? == 0 ]; then
+    echo "Docker already running"
+else
+    echo "Docker is not running"
+    echo "Starting Docker"
+    sudo systemctl start docker
+fi
+
 # Creating Docker Volumes and Network for Metrics Monitoring
 cd Infrastructure/Monitoring
 docker network create monitoring
@@ -55,3 +67,6 @@ docker run --rm \
   -e INFLUXDB_USER=telegraf -e INFLUXDB_USER_PASSWORD=secretpassword \ # change user and password!
   -v influxdb-volume:/var/lib/influxdb \
   influxdb /init-influxdb.sh
+
+# Run the Containers with docker-compose
+docker-compose up -d
