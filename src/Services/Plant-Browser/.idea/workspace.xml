@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b91322cf-a5f5-4a11-8c20-fecf0614eaed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/Devices/Entity/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Stack-Deplyment/installAll.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Stack-Deplyment/installAll.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Infrastructure/Monitoring/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Infrastructure/Monitoring/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/ProjectManagement/Controller/ProjectMgmtServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/Devices/Controller/DeviceBrowserServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/ProjectManagement/Entity/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/Devices/Entity/Device.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/DeviceViews/devices.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DeviceViews/devices.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -174,7 +161,7 @@
       <workItem from="1573856407247" duration="2357000" />
       <workItem from="1573901534707" duration="1687000" />
       <workItem from="1573914652485" duration="96000" />
-      <workItem from="1573914778718" duration="9930000" />
+      <workItem from="1573914778718" duration="11446000" />
     </task>
     <servers />
   </component>

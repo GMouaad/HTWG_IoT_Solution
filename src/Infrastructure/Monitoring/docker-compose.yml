@@ -28,7 +28,7 @@ services:
       - 1521:1521 # TCP Database Server
       - 8081:81 # Web interface
     volumes:
-      - /IoTStack/local/data_dir:/opt/h2-data
+      - /IoTStack/local/h2_data_dir:/opt/h2-data
     environment:
       H2_OPTIONS: "-ifNotExists"
   telegraf:
