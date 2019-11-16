@@ -47,6 +47,8 @@ else
     echo "Docker-compose was not installed correctly"
 fi
 
+# Run the Portainer with docker-compose
+docker-compose up -d
 
 # Build All the docker images from their docker file
 #docker build -f service_dockerfile -t title
