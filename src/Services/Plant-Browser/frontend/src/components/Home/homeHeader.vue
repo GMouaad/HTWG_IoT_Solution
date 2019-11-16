@@ -16,10 +16,10 @@
                             </v-col>
                             <v-col>
                                 <v-row>
-                                    <span>Prinx</span>
+                                    <span>HTWG IoT</span>
                                 </v-row>
                                 <v-row>
-                                    <span class="font-weight-normal overline">Project Collaboration and Management Platform</span>
+                                    <span class="font-weight-normal overline">Plant Browser</span>
                                 </v-row>
                             </v-col>
                         </v-row>
@@ -50,9 +50,9 @@
             <template v-slot:extension>
                 <v-tabs align-with-title background-color="transparent">
                     <v-tab to="/">Home</v-tab>
-                    <v-tab to="/news">News</v-tab>
-                    <v-tab to="/projects">Projects</v-tab>
+                    <v-tab to="/Devices">Devices</v-tab>
                     <v-tab to="/workspace">Workspace</v-tab>
+                    <v-tab to="/logs">Logs</v-tab>
                     <v-tab to="/about">About Us</v-tab>
                 </v-tabs>
             </template>
@@ -100,9 +100,10 @@ export default {
       nav: null,
       navItems: [
           { title: 'Home', icon: 'home', target: '/home'},
-          { title: 'News', icon: 'question_answer', target: '/news'},
-          { title: 'Projects', icon: 'ballot', target: '/projects'},
+          { title: 'Devices', icon: 'ballot', target: '/devices'},
           { title: 'Workspace', icon: 'dashboard', target: '/workspace'},
+          { title: 'Geolocator', icon: 'mdi-map-search-outline', target: '/geolocator'},
+          { title: 'Logs', icon: 'mdi-file-document-outline', target: '/Logs'},
           { title: 'About', icon: 'info', target: '/about'}
         ],
     }),

@@ -16,16 +16,16 @@ public class ProjectMgmtServiceController {
 
     @RequestMapping(
             method = RequestMethod.GET,
-            path = "/projects",
+            path = "/Devices",
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public List<Project> getProjects(){
-        List<Project> projects = new ArrayList<Project>();
+    public List<Project> getDevices(){
+        List<Project> Devices = new ArrayList<Project>();
         Project project1 = new Project("Senegal Solarlampen", "IoG");
         Project project2 = new Project("Senegal Solarpumpen", "IoG");
-        projects.add(project1);
-        projects.add(project2);
-        return projects;
+        Devices.add(project1);
+        Devices.add(project2);
+        return Devices;
     }
 
 }

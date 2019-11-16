@@ -4,24 +4,13 @@
   </div> -->
 
   <div>
-      <section id="scrolling-techniques-3" class="overflow-y-auto"  max-height="600">
-        <v-parallax src="../../assets/images/index.jpg" height="400">
-          <v-layout column align-center justify-center class="white--text">
-            <h1 class="white--text mb-2 display-1 text-center">Prinx</h1>
-            <!-- <div class="subheading mb-4 text-center">by Mgsair</div> -->
-            <v-btn class="mt-12" color="blue lighten-2" dark large href="/pre-made-themes">
-              Get Started
-            </v-btn>
-          </v-layout>
-        </v-parallax>
-      </section>
       <section>
         <v-layout column wrap class="my-12" align-center>
           <v-flex xs12 sm4 class="my-4">
             <div class="text-center">
-              <h2 class="headline">Work with people, post problems to be solved and share your ideas</h2>
+              <h2 class="headline">PLANT NAME</h2>
               <span class="subheading">
-                BE CREATIVE
+                Browse your Plants and find Devices and general Information
               </span>
             </div>
           </v-flex>
@@ -33,12 +22,12 @@
                     <v-card-text class="text-center">
                       <v-icon x-large class="blue--text text--lighten-2">mdi-palette</v-icon>
                     </v-card-text>
-                    <v-img class="white--text" height="300px" src="../../assets/images/intro_1.jpg"/>
+                    <v-img class="white--text" height="300px" src="../../assets/images/black-and-white-monitoring.jpg"/>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-center">Projects in progress</div>
+                      <div class="headline text-center">Monitor your devices</div>
                     </v-card-title>
                     <v-card-text>
-                      Take a look on the projects in progress and perhaps share an idea about them
+                      Guideline to Monitor your devices using the Monitoring Tool for in the IoT Solution.
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -47,12 +36,12 @@
                     <v-card-text class="text-center">
                       <v-icon x-large class="blue--text text--lighten-2">mdi-wrench</v-icon>
                     </v-card-text>
-                    <v-img class="white--text" height="300px" src="../../assets/images/event_9.jpg"/>
+                    <v-img class="white--text" height="300px" src="../../assets/images/factory-devices-1.jpg"/>
                     <v-card-title  primary-title class="layout justify-center align-end">
-                      <div class="headline">Problems to be solved</div>
+                      <div class="headline">Connect your Device</div>
                     </v-card-title>
                     <v-card-text>
-                      Take a look at the problems that need to be solved, perhaps you might be the one or know the one who can work on them!
+                      Click here to read the Guidline to connect a device to the plant.
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -61,12 +50,12 @@
                     <v-card-text class="text-center">
                       <v-icon x-large class="blue--text text--lighten-2">mdi-flash</v-icon>
                     </v-card-text>
-                    <v-img class="white--text" height="300px" src="../../assets/images/event_11.jpg"/>
+                    <v-img class="white--text" height="300px" src="../../assets/images/operator.jpg"/>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-center">Researchers</div>
+                      <div class="headline text-center">Involved Persons</div>
                     </v-card-title>
                     <v-card-text>
-                      The most invloved researchers on the projects
+                      The invloved Professors, Engineers and Students on the Devices
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -77,24 +66,12 @@
       </section>
 
       <section>
-        <v-parallax id="prlx" src="../../assets/images/Board.jpg" height="380">
-          <v-layout column align-center justify-center>
-            <div class="headline bold--text black--text mb-4 text-center">Project Management and Cooperating has never been easier</div>
-            <em class="white--text" >Kick-start your Project today</em>
-            <v-btn class="mt-12" color="blue lighten-2" dark large href="/pre-made-themes">
-              Register Now!
-            </v-btn>
-          </v-layout>
-        </v-parallax>
-      </section>
-
-      <section>
         <v-container grid-list-xl>
           <v-layout row wrap justify-center class="my-12">
             <v-flex xs12 sm4>
               <v-card flat class="transparent">
                 <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Our Motive</div>
+                  <div class="headline">The Motive</div>
                 </v-card-title>
                 <v-card-text>
                   "Curiosity is the Spark behind the spark of every great idea. The future belongs to the curious.", Author unknown.
@@ -104,12 +81,20 @@
             <v-flex xs12 sm4 offset-sm1>
               <v-card flat class="transparent">
                 <v-card-title primary-title class="layout justify-center">
-                  <div class="headline">Contact us</div>
+                  <div class="headline">Contact</div>
                 </v-card-title>
                 <v-card-text>
-                  Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
+                  Contact a Student or laboratory engineer and he will guide you to solve your Problem or redirect you to the person who can help you
                 </v-card-text>
                 <v-list class="transparent">
+                  <v-list-item>
+                    <v-list-item-action>
+                      <v-icon class="blue--text text--lighten-2">mdi-account</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                      <v-list-item-title>Mouaad Gssair</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
                   <v-list-item>
                     <v-list-item-action>
                       <v-icon class="blue--text text--lighten-2">mdi-phone</v-icon>
@@ -131,7 +116,7 @@
                       <v-icon class="blue--text text--lighten-2">mdi-email</v-icon>
                     </v-list-item-action>
                     <v-list-item-content>
-                      <v-list-item-title>Mgsair@gmail.com</v-list-item-title>
+                      <v-list-item-title>M.Gssair@htwg-konstanz.de</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </v-list>

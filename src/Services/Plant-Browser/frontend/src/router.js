@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import HomeContent from './components/Home/homeContent.vue'
-import Projects from './components/ProjectViews/projects.vue'
-import News from './components/NewsViews/news.vue'
+import Devices from './components/DeviceViews/devices.vue'
+import Geolocator from './components/Geolocator/geolocator.vue'
+import Logs from './components/LogsViews/logs.vue'
 
 Vue.use(Router)
 
@@ -21,14 +22,19 @@ export default new Router({
       component: HomeContent
     },
     {
-      path: '/projects',
-      name: 'projects',
-      component: Projects
+      path: '/devices',
+      name: 'devices',
+      component: Devices
     },
     {
-      path: '/news',
-      name: 'news',
-      component: News
+      path: '/geolocator',
+      name: 'geolocator',
+      component: Geolocator
+    },
+    {
+      path: '/logs',
+      name: 'logs',
+      component: Logs
     },
     {
       path: '/about',
