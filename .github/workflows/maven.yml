@@ -13,7 +13,13 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - run: mkdir -p src/Services/Plant-Browser/plant-browser-release
+    
     - name: Clean with Maven
       run: mvn clean --file src/Services/Plant-Browser/pom.xml
     - name: Build with Maven
       run: mvn -B package --file src/Services/Plant-Browser/pom.xml
+    - uses: actions/upload-artifact@master
+      with:
+        name: plant-browser-service.jar
+        path: src/Services/Plant-Browser/plant-browser-release
