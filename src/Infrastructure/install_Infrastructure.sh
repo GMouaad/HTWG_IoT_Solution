@@ -1,7 +1,9 @@
 #!/bin/sh
 
-# This Script is meant for the Stack Deployment of the HTWG IoT Infrastructur Solution
+# This file is part of the Stack Deployment of the HTWG IoT Infrastructur Solution
 # Author: Mouaad Gssair, M.Gssair@htwg-konstanz.de
+
+# This Script is meant for installing the Infrastructure Components Requered using Docker
 # NOTE: Make sure to run this script with root access
 # TODO: Proxy Settings ?
 
@@ -21,7 +23,8 @@ else
     sudo apt-get install git
 fi
 
-mkdir ~/IoTstack
+# Make Directory if it doesn't already exist
+mkdir -p ~/IoTstack
 cd  ~/IoTstack
 # Initializing and cloning Repository
 git init
