@@ -39,11 +39,14 @@
 	</dependencies>
 
 	<build>
-<!--        <outputDirectory>${project.parent.basedir}/out</outputDirectory>-->
+		<finalName>plant-browser-service</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<outputDirectory>${project.parent.basedir}/${project.parent.artifactId}-release</outputDirectory>
+				</configuration>
 			</plugin>
 			<plugin>
 				<artifactId>maven-resources-plugin</artifactId>

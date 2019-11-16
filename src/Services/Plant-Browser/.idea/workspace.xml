@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b91322cf-a5f5-4a11-8c20-fecf0614eaed" name="Default Changelist" comment="" />
+    <list default="true" id="b91322cf-a5f5-4a11-8c20-fecf0614eaed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/Devices/Entity/Location.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Stack-Deplyment/installAll.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Stack-Deplyment/installAll.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Infrastructure/Monitoring/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Infrastructure/Monitoring/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/ProjectManagement/Controller/ProjectMgmtServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/Devices/Controller/DeviceBrowserServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/ProjectManagement/Entity/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/Devices/Entity/Device.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DeviceViews/devices.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DeviceViews/devices.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +33,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -26,6 +43,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1QBito6tY4BIChfVoja5eY7BUYq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -41,6 +59,11 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
     <option name="ruleStates">
       <list>
         <RuleState>
@@ -124,6 +147,16 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -140,6 +173,8 @@
       <workItem from="1567976688657" duration="434000" />
       <workItem from="1573856407247" duration="2357000" />
       <workItem from="1573901534707" duration="1687000" />
+      <workItem from="1573914652485" duration="96000" />
+      <workItem from="1573914778718" duration="9930000" />
     </task>
     <servers />
   </component>

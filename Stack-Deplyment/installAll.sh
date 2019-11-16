@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This file is part of the Stack Deployment of the HTWG IoT Infrastructur Solution
+# This file is part of the Stack Deployment of the HTWG IoT Infrastructure Solution
 # Author: Mouaad Gssair, M.Gssair@htwg-konstanz.de
 
 # This Script is meant for installing the basic Requered Software and run the particular

@@ -1,19 +1,11 @@
 <template>
     <v-card>
-        <v-card v-for="device in Devices" :key="device.title">
+        <v-card v-for="device in Devices" :key="device.name">
             <v-card-title>
-                {{device.title}}
+                {{device.name}}
             </v-card-title>
             <v-card-text>
                 By {{device.owner}}
-            </v-card-text>
-        </v-card>
-        <v-card v-for="employee in employees" :key="employee.id">
-            <v-card-title>
-                {{employee.employee_name}}
-            </v-card-title>
-            <v-card-text>
-                Salary {{employee.employee_salary}}
             </v-card-text>
         </v-card>
     </v-card>
@@ -23,10 +15,10 @@ export default {
     name: 'Devices',
     data: () => ({
         Devices: [
-          { title: 'Mobile App Dev', owner: 'Mouaad Gssair' },
-          { title: 'PoC Microservices', owner: 'Mouaad Gssair' },
-          { title: 'IoT Infrastructur', owner: 'Mouaad Gssair' },
-          { title: 'BoW Control System', owner: 'Daniel Grotz & M. Gssair' }
+          { name: 'Tank 1 Laser Level Transmitter', owner: 'AUT-Labor' , unit: "Meters"},
+          { name: 'Tank 1 Temperature', owner: 'AUT-Labor' , unit: "Celcius"},
+          { name: 'Tank 2 Pressure', owner: 'AUT-Labor' , unit: "bar"},
+          { name: 'Tank 2 Valve', owner: 'AUT-Labor' }
         ],
         employees: []
     }),
