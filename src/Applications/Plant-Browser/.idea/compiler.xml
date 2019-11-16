@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Prings-backend" />
+        <module name="Plant-Browser-frontend" />
+        <module name="Plant-Browser-backend" />
+        <module name="Prings-frontend" />
+        <module name="plant-browser-frontend" />
+        <module name="plant-browser-backend" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Plant-Browser-backend" options="-parameters" />
+      <module name="Plant-Browser-frontend" options="-parameters" />
+      <module name="Prings-backend" options="-parameters" />
+      <module name="Prings-frontend" options="-parameters" />
+      <module name="plant-browser-backend" options="-parameters" />
+      <module name="plant-browser-frontend" options="-parameters" />
+    </option>
+  </component>
+</project>
