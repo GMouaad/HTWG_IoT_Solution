@@ -1,14 +1,14 @@
 <template>
     <div class="overflow-hidden">
-        <v-app-bar app color="#6A76AB" dark shrink-on-scroll prominent src="../../assets/images/toolbar-background.jpg"
-         scroll-target="#scrolling-techniques-3" dense clipped-left class="nopad">
+        <v-app-bar app color="#6A76AB" dark prominent src="../../assets/images/toolbar-background.jpg"
+          dense clipped-left class="nopad"> <!-- scroll-target="#scrolling-techniques-3" -->
             <template v-slot:img="{ props }">
                 <v-img v-bind="props" gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"></v-img>
             </template>
             <v-app-bar-nav-icon v-on:click="nav = !nav"></v-app-bar-nav-icon>
-            <v-toolbar-title class="headline text-uppercase" id="nopad">
-                    <v-container id="nopad">
-                        <v-row class="nopad">
+            <v-toolbar-title class="headline" id="nopad"> <!-- class text-uppercase -->
+                    <v-container>
+                        <v-row pa-6>
                             <v-col>
                                 <v-avatar size="50px">
                                     <v-img src="../../assets/images/Logo.jpg" alt=""/>
@@ -19,18 +19,15 @@
                                     <span>HTWG IoT</span>
                                 </v-row>
                                 <v-row>
-                                    <span class="font-weight-normal overline">Plant Browser</span>
+                                    <span class="font-weight-normal overline">PLANT BROWSER</span>
                                 </v-row>
                             </v-col>
                         </v-row>
                     </v-container>
             </v-toolbar-title>
             <div class="flex-grow-1"></div>
-            <v-btn icon>
+            <v-btn icon to="/home">
                 <v-icon>home</v-icon>
-            </v-btn>
-            <v-btn icon>
-                <v-icon>mdi-magnify</v-icon>
             </v-btn>
             <v-btn icon>
                 <v-icon>mdi-account</v-icon>
@@ -50,10 +47,11 @@
             <template v-slot:extension>
                 <v-tabs align-with-title background-color="transparent">
                     <v-tab to="/">Home</v-tab>
-                    <v-tab to="/Devices">Devices</v-tab>
-                    <v-tab to="/workspace">Workspace</v-tab>
+                    <v-tab to="/devices">Devices</v-tab>
+                    <v-tab to="/geolocator">Geolocator</v-tab>
+                    <!-- <v-tab to="/workspace">Wiki</v-tab> -->
                     <v-tab to="/logs">Logs</v-tab>
-                    <v-tab to="/about">About Us</v-tab>
+                    <v-tab to="/wiki">Wiki</v-tab>
                 </v-tabs>
             </template>
         </v-app-bar>
@@ -66,7 +64,7 @@
                     <v-img src="../../assets/images/Logo.jpg"></v-img>
                 </v-list-item-avatar>
                 <v-list-item-content>
-                    <v-list-item-title>Prinx</v-list-item-title>
+                    <v-list-item-title>HTWG IoT</v-list-item-title>
                 </v-list-item-content>
             </v-list-item>
             <v-divider></v-divider>
@@ -101,10 +99,10 @@ export default {
       navItems: [
           { title: 'Home', icon: 'home', target: '/home'},
           { title: 'Devices', icon: 'ballot', target: '/devices'},
-          { title: 'Workspace', icon: 'dashboard', target: '/workspace'},
+        //   { title: 'Workspace', icon: 'dashboard', target: '/workspace'},
           { title: 'Geolocator', icon: 'mdi-map-search-outline', target: '/geolocator'},
-          { title: 'Logs', icon: 'mdi-file-document-outline', target: '/Logs'},
-          { title: 'About', icon: 'info', target: '/about'}
+          { title: 'Logs', icon: 'mdi-file-document-outline', target: '/logs'},
+          { title: 'Wiki', icon: 'info', target: '/wiki'}
         ],
     }),
     methods: {

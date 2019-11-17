@@ -23,6 +23,8 @@ public class DeviceBrowserServiceController {
         List<Device> Devices = new ArrayList<Device>();
         Device device1 = new Device("Temperature Sensor", 1, "Prof. Dr. Müller");
         Device device2 = new Device("Humidity Sensor", 1, "Mouaad Gssair");
+        device1.setId(464);
+        device2.setId(574);
         device1.setUnit("celcius");
         device2.setUnit("bar");
         device1.setLastLocation(47.6675354, 9.1707902);

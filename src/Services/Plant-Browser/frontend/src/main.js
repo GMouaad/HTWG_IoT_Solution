@@ -8,7 +8,7 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
 Vue.config.productionTip = false
-
+Vue.component('WikiSection', require('./components/Wiki/wikiSection.vue').default)
 new Vue({
   router,
   store,

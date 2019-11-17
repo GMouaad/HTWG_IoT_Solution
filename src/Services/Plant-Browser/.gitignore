@@ -1,3 +1,6 @@
+backend/src/main/resources/public/
+backend/src/main/resources/public/*
+
 /.idea/
 # User-specific stuff
 .idea/**/workspace.xml

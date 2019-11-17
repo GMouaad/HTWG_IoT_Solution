@@ -1,8 +1,4 @@
 <template>
-  <!-- <div class="hello">
-    <h1>{{ msg }}</h1>
-  </div> -->
-
   <div>
       <section>
         <v-layout column wrap class="my-12" align-center>

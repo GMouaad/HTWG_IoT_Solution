@@ -4,6 +4,7 @@ import HomeContent from './components/Home/homeContent.vue'
 import Devices from './components/DeviceViews/devices.vue'
 import Geolocator from './components/Geolocator/geolocator.vue'
 import Logs from './components/LogsViews/logs.vue'
+import Wiki from './components/Wiki/Wiki.vue'
 
 Vue.use(Router)
 
@@ -35,6 +36,11 @@ export default new Router({
       path: '/logs',
       name: 'logs',
       component: Logs
+    },
+    {
+      path: '/wiki',
+      name: 'wiki',
+      component: Wiki
     },
     {
       path: '/about',

@@ -2,7 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b91322cf-a5f5-4a11-8c20-fecf0614eaed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.env.development" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.env.production" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Wiki/Wiki.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/Wiki/wikiSection.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/Devices/Controller/DeviceBrowserServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/de/htwg/iotstack/plantBrowser/Devices/Controller/DeviceBrowserServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/DeviceViews/devices.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/DeviceViews/devices.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home/homeContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home/homeContent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home/homeHeader.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home/homeHeader.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/vue.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +47,7 @@
   <component name="ProjectId" id="1QBito6tY4BIChfVoja5eY7BUYq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -159,7 +177,9 @@
       <workItem from="1573856407247" duration="2357000" />
       <workItem from="1573901534707" duration="1687000" />
       <workItem from="1573914652485" duration="96000" />
-      <workItem from="1573914778718" duration="11874000" />
+      <workItem from="1573914778718" duration="12354000" />
+      <workItem from="1573994090950" duration="4974000" />
+      <workItem from="1574025178589" duration="537000" />
     </task>
     <servers />
   </component>
