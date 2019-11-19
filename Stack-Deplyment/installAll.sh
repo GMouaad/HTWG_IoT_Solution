@@ -10,6 +10,12 @@
 set -e
 # Any subsequent(*) commands which fail will cause the shell script to exit immediately
 
+# Make Directory if it doesn't already exist
+mkdir -p ~/IoTstack
+cd  ~/IoTstack
+export WORK_DIR=$(PWD)
+echo "Working Directory: " $WORK_DIR
+
 # Install Docker
 # Test if Docker is already installed
 echo "Cheking if Docker is installed.."
@@ -50,5 +56,11 @@ fi
 # Run the Portainer with docker-compose
 docker-compose up -d
 
-# Build All the docker images from their docker file
-#docker build -f service_dockerfile -t title
+# Run Script to install Infrustructure Components
+# TODO: Test this
+chmod +x install_Infrastructure.sh
+sudo ./install_Infrastructure.sh
+
+mkdir $WORK_DIR/Applications
+# install Services...
+
