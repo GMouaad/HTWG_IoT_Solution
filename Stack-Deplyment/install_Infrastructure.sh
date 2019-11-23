@@ -10,22 +10,34 @@
 set -e
 # Any subsequent(*) commands which fail will cause the shell script to exit immediately
 
-# Test if Git is already installed
+# Function to install git when it's not already installed
+installGit () {
+    echo "Git is not installed"
+    echo "Installing Git"
+    sudo apt-get install git
+}
+
+startDocker() {
+    echo "Docker is not running"
+    echo "Starting Docker"
+    sudo systemctl start docker
+}
+# Test if Git is installed
 echo "Cheking if Git is installed.."
-git --version 2>&1 >/dev/null # 
+git --version 2>&1 >/dev/null || installGit
 GIT_IS_AVAILABLE=$?
 # If return value is 0, then it is installed
 if [ $GIT_IS_AVAILABLE -eq 0 ]; then
     echo "Git already installed"
-else
-    echo "Git is not installed"
-    echo "Installing Git"
-    sudo apt-get install git
 fi
+
 
 # Make Directory if it doesn't already exist
 mkdir -p ~/IoTstack
 cd  ~/IoTstack
+export WORK_DIR=$(pwd)
+echo "Working Directory: " $WORK_DIR
+
 # Initializing and cloning Repository
 git init
 git remote add origin -f https://github.com/GMouaad/HTWG_IoT_Solution.git
@@ -35,18 +47,14 @@ git pull origin master
 
 # Check if Docker is installed and running
 echo "Cheking if Docker is running.."
-sudo systemctl status docker | grep 'running' &> >/dev/null # 2>&1
+sudo systemctl status docker | grep 'running' &> >/dev/null || startDocker # 2>&1
 # If return value is 0, then it is installed
 if [ $? == 0 ]; then
     echo "Docker already running"
-else
-    echo "Docker is not running"
-    echo "Starting Docker"
-    sudo systemctl start docker
 fi
 
 # Creating Docker Volumes and Network for Metrics Monitoring
-cd Infrastructure/Monitoring
+cd $WORK_DIR/Infrastructure/Monitoring
 docker network create monitoring
 docker volume create grafana-volume
 docker volume create influxdb-volume

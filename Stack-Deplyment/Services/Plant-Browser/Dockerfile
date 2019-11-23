@@ -1,6 +1,7 @@
 FROM 	openjdk:8-jdk-alpine
 LABEL maintainer="M.Gssair@htwg-konstanz.de"
-EXPOSE 	8002
+# Change to Port to 8002 here and in application.properties!
+EXPOSE 	8080
 VOLUME /tmp 
 # Make sure the path to jar file is correct
 # TODO: Move Dockerfile to Deployment Dir ?

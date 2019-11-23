@@ -10,23 +10,26 @@
 set -e
 # Any subsequent(*) commands which fail will cause the shell script to exit immediately
  
+# Function to install git when it's not already installed
+installGit () {
+    echo "Git is not installed"
+    echo "Installing Git"
+    sudo apt-get install git
+}
+
 # Test if Git is installed
 echo "Cheking if Git is installed.."
-git --version 2>&1 >/dev/null # 
+git --version 2>&1 >/dev/null || installGit
 GIT_IS_AVAILABLE=$?
 # If return value is 0, then it is installed
 if [ $GIT_IS_AVAILABLE -eq 0 ]; then
     echo "Git already installed"
-else
-    echo "Git is not installed"
-    echo "Installing Git"
-    sudo apt-get install git
 fi
 
 # Make Directory if it doesn't already exist
 mkdir -p ~/IoTstack
 cd  ~/IoTstack
-export WORK_DIR=$(PWD)
+export WORK_DIR=$(pwd)
 echo "Working Directory: " $WORK_DIR
 
 # Initializing and cloning Repository

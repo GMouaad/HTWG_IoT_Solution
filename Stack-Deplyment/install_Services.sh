@@ -13,7 +13,7 @@ set -e
 # Make Directory if it doesn't already exist
 mkdir -p ~/IoTstack
 cd  ~/IoTstack
-export WORK_DIR=$(PWD)
+export WORK_DIR=$(pwd)
 echo "Working Directory: " $WORK_DIR
 
 

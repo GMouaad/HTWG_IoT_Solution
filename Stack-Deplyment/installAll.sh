@@ -10,10 +10,18 @@
 set -e
 # Any subsequent(*) commands which fail will cause the shell script to exit immediately
 
+# Function to install Docker when it's not already installed
+installGit () {
+    echo "Docker is not installed"
+    echo "Installing Docker"
+    curl -sSL https://get.docker.com | sh
+}
+
+
 # Make Directory if it doesn't already exist
 mkdir -p ~/IoTstack
 cd  ~/IoTstack
-export WORK_DIR=$(PWD)
+export WORK_DIR=$(pwd)
 echo "Working Directory: " $WORK_DIR
 
 # Install Docker
@@ -24,10 +32,6 @@ DOCKER_IS_AVAILABLE=$?
 # If return value is 0, then it is installed
 if [ $DOCKER_IS_AVAILABLE -eq 0 ]; then
     echo "Docker already installed"
-else
-    echo "Docker is not installed"
-    echo "Installing Docker"
-    curl -sSL https://get.docker.com | sh
 fi
 
 # Configure docker to run as non-root user
