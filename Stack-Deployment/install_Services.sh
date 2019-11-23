@@ -3,7 +3,7 @@
 # This file is part of the Stack Deployment of the HTWG IoT Infrastructure Solution
 # Author: Mouaad Gssair, M.Gssair@htwg-konstanz.de
 
-# This Script is meant for installing the basic Requered Software and run the particular
+# This Script is meant for installing the Services (in form of docker containers ?) and run them
 # install Scripts of the HTWG IoT Infrastructur Solution
 # NOTE: Make sure to run this script with root access
 

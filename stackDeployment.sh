@@ -39,5 +39,5 @@ git config core.sparseCheckout true
 echo "/Stack-Deployment" > .git/info/sparse-checkout
 git pull origin master
 
-chmod +x $WORK_DIR/installAll.sh
-sudo ./$WORK_DIR/installAll.sh
+chmod +x $WORK_DIR/Stack-Deployment/installAll.sh
+sudo ./$WORK_DIR/Stack-Deployment/installAll.sh

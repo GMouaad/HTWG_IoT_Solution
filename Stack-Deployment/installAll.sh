@@ -11,7 +11,7 @@ set -e
 # Any subsequent(*) commands which fail will cause the shell script to exit immediately
 
 # Function to install Docker when it's not already installed
-installGit () {
+installDocker () {
     echo "Docker is not installed"
     echo "Installing Docker"
     curl -sSL https://get.docker.com | sh
@@ -27,7 +27,7 @@ echo "Working Directory: " $WORK_DIR
 # Install Docker
 # Test if Docker is already installed
 echo "Cheking if Docker is installed.."
-docker --version 2>&1 >/dev/null # 
+docker --version 2>&1 >/dev/null || installDocker # 
 DOCKER_IS_AVAILABLE=$?
 # If return value is 0, then it is installed
 if [ $DOCKER_IS_AVAILABLE -eq 0 ]; then
