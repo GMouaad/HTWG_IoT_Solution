@@ -35,9 +35,15 @@ if [ $DOCKER_IS_AVAILABLE -eq 0 ]; then
 fi
 
 # Configure docker to run as non-root user
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
+if grep -q docker /etc/group
+    then
+         echo "Docker group exists"
+else
+        echo "Creating Docker Group"
+        sudo groupadd docker
+        sudo usermod -aG docker $USER
+        newgrp docker
+fi
 
 # Install Docker-compose
 echo "Installing Docker-compose"
