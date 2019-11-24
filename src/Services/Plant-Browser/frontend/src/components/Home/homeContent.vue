@@ -4,7 +4,7 @@
         <v-layout column wrap class="my-12" align-center>
           <v-flex xs12 sm4 class="my-4">
             <div class="text-center">
-              <h2 class="headline">PLANT NAME</h2>
+              <h2 class="headline">{{plantName}}</h2>
               <span class="subheading">
                 Browse your Plants and find Devices and general Information
               </span>
@@ -130,7 +130,10 @@ export default {
   name: 'HomeContent',
   props: {
     msg: String
-  }
+  },
+  data: () => ({
+    plantName: 'Unique PLANT NAME'
+  })
 }
 </script>
 

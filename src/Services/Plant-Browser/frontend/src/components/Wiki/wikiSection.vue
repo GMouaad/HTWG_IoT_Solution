@@ -12,12 +12,12 @@
 
 <script>
 export default {
-    name: 'WikiSection',
-    props: {
-        title: String,
-        content: String,
-        subsections: Array
-    }
+  name: 'WikiSection',
+  props: {
+    title: String,
+    content: String,
+    subsections: Array
+  }
 }
 </script>
 

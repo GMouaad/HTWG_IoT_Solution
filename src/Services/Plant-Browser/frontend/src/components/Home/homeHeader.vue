@@ -11,7 +11,7 @@
                         <v-row pa-6>
                             <v-col>
                                 <v-avatar size="50px">
-                                    <v-img src="../../assets/images/Logo.jpg" alt=""/>
+                                    <v-img src="../../assets/images/Logo.jpg" alt="HTWG Logo"/>
                                 </v-avatar>
                             </v-col>
                             <v-col>
@@ -88,34 +88,34 @@ export default {
     title: String
   },
   data: () => ({
-      loginStatus: '',
-      loginStatusText: '',
-      items: [
-        { title: 'Login'},
-        { title: 'Settings' },
-        { title: 'Help' }
-      ],
-      nav: null,
-      navItems: [
-          { title: 'Home', icon: 'home', target: '/home'},
-          { title: 'Devices', icon: 'ballot', target: '/devices'},
-        //   { title: 'Workspace', icon: 'dashboard', target: '/workspace'},
-          { title: 'Geolocator', icon: 'mdi-map-search-outline', target: '/geolocator'},
-          { title: 'Logs', icon: 'mdi-file-document-outline', target: '/logs'},
-          { title: 'Wiki', icon: 'info', target: '/wiki'}
-        ],
-    }),
-    methods: {
+    loginStatus: '',
+    loginStatusText: '',
+    items: [
+      { title: 'Login' },
+      { title: 'Settings' },
+      { title: 'Help' }
+    ],
+    nav: null,
+    navItems: [
+      { title: 'Home', icon: 'home', target: '/home' },
+      { title: 'Devices', icon: 'ballot', target: '/devices' },
+      //   { title: 'Workspace', icon: 'dashboard', target: '/workspace'},
+      { title: 'Geolocator', icon: 'mdi-map-search-outline', target: '/geolocator' },
+      { title: 'Logs', icon: 'mdi-file-document-outline', target: '/logs' },
+      { title: 'Wiki', icon: 'info', target: '/wiki' }
+    ]
+  }),
+  methods: {
 
-    },
-    created(){
-        var instance = this
-        instance.loginStatus = false
-    },
-    mounted(){
-        var instance = this
-        instance.loginStatusText = this.loginStatus ? 'Logout' : 'Login' 
-    }
+  },
+  created () {
+    var instance = this
+    instance.loginStatus = false
+  },
+  mounted () {
+    var instance = this
+    instance.loginStatusText = this.loginStatus ? 'Logout' : 'Login'
+  }
 }
 </script>
 <style>

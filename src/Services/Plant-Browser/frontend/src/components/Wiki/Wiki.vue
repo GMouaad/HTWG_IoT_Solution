@@ -1,18 +1,18 @@
 <template>
   <div>
       <v-container>
-          <v-row>
-              <v-card pa-2 ma-2>
+          <v-row align-center>
+            <v-col cols="1" shrink sm="4" md="4" lg="3">
+              <v-card pa-2 ma-2 class="blue lighten-5" shrink>
                   <v-card-title>Content</v-card-title>
-                <v-col shrink>
-                        <v-treeview
+                      <v-treeview
                             :items="contentSections"
                             activatable hoverable dense open-all>
-                        </v-treeview>
-                </v-col>
-              </v-card>
+                      </v-treeview>
+                </v-card>
+              </v-col>
               <v-divider vertical></v-divider>
-              <v-col>
+              <v-col  cols="2" sm="8" md="7" lg="8">
                   <wiki-section v-for="section in contentSections" :key="section.id"
                   :title="section.name" :content="section.content" v-bind:subsections="section.children"/>
               </v-col>
