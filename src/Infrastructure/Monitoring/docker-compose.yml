@@ -40,7 +40,7 @@ services:
       HOST_PROC: /rootfs/proc
       HOST_SYS: /rootfs/sys
       HOST_ETC: /rootfs/etc
-    hostname: myhostname
+    hostname: myHostServerName
     network_mode: "host"
     pid: "host"
     volumes:

@@ -54,14 +54,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 
 # Test if Installation was successful
 echo "Cheking if Installation was successful"
-docker-compose --version 2>&1 >/dev/null # Output is not shown on the console
-COMPOSE_IS_AVAILABLE=$?
-# If return value is 0, then it is installed
-if [ $COMPOSE_IS_AVAILABLE -eq 0 ]; then
-    echo "Docker-compose installed successfully"
-else
-    echo "Docker-compose was not installed correctly"
-fi
+docker-compose --version 2>&1 >/dev/null || echo "Docker-compose was not installed correctly" # Output is not shown on the console
 
 # Run the Portainer with docker-compose
 docker-compose up -d
@@ -69,8 +62,8 @@ docker-compose up -d
 # Run Script to install Infrustructure Components
 # TODO: Test this
 chmod +x install_Infrastructure.sh
-sudo ./install_Infrastructure.sh
+sudo sh $WORK_DIR/install_Infrastructure.sh
 
 mkdir $WORK_DIR/Applications
-# install Services...
+# install Applications...
 
