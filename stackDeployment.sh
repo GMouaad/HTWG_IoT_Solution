@@ -13,8 +13,22 @@ set -e
 # Function to install git when it's not already installed
 installGit () {
     echo "Git is not installed"
-    echo "Installing Git"
-    sudo apt-get install git
+    checkLinuxDistnInstall
+}
+
+# Function to check the Linux dist to use the corresponding package manager
+checkLinuxDistnInstall () {
+    echo "Checking linux Distribution"
+    cat /etc/os-release | grep CentOS &> >/dev/null
+    if [ $? == 0 ]
+        echo "Using CentOS Package Manager: Yum"
+        echo "Installing Git"
+        sudo yum install git
+    else 
+        echo "Using the standard Package Manager: Apt"
+        echo "Installing Git"
+        sudo apt-get install git
+    fi
 }
 
 # Test if Git is installed

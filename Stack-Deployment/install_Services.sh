@@ -23,5 +23,10 @@ mkdir $WORK_DIR/Sevices/Plant-Browser
 curl https://github.com/GMouaad/HTWG_IoT_Solution/raw/master/src/Services/Plant-Browser/plant-browser-release/plant-browser-service.jar --output $WORK_DIR/Services/Plant-Browser/plant-browser-service.jar
 
 # Check if docker is running
+# TODO
+
 # Build All the docker images from their docker file
-#docker build -f service_dockerfile -t title
+docker image build -f $WORK_DIR/Services/Plant-Browser/Dockerfile -t plant-browser .
+
+# To run the Service 
+# docker run -p 8080:8080 --name plant-browser-service plant-browser
