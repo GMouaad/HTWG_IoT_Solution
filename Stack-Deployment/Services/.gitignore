@@ -1,0 +1,2 @@
+# The Jars or generally the releases will be ignored here and will be pulled using curl by the install Script
+*.jar
