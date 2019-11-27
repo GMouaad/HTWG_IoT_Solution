@@ -7,4 +7,4 @@ It offers a Grafical User Interface to Monitore the Plant Assets e.g. Devices, a
 The Backend has a REST API which can also be called externally. 
 See The REST API Reference for more Information
 
-Server Port : 8002
+Server Port : 8080  # This should be changed later in production to 8002
