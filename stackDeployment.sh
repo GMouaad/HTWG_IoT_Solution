@@ -19,8 +19,8 @@ installGit () {
 # Function to check the Linux dist to use the corresponding package manager
 checkLinuxDistnInstall () {
     echo "Checking linux Distribution"
-    cat /etc/os-release | grep CentOS &> >/dev/null
-    if [ $? == 0 ]
+    cat /etc/os-release | grep 'CentOS' 2>&1 >/dev/null
+    if [ $? == 0 ]; then
         echo "Using CentOS Package Manager: Yum"
         echo "Installing Git"
         sudo yum install git
