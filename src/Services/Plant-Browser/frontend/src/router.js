@@ -43,6 +43,11 @@ export default new Router({
       component: Wiki
     },
     {
+      path: '/oauth-callback',
+      name: 'oauth-callback'
+      // component: oauth-callback
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting

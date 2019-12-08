@@ -11,7 +11,7 @@
 <script>
 // import HelloWorld from './components/HelloWorld';
 import HomeHeader from './components/Home/homeHeader'
-import HomeContent from './components/Home/homeContent'
+// import HomeContent from './components/Home/homeContent'
 import HomeFooter from './components/Home/homeFooter'
 
 export default {
