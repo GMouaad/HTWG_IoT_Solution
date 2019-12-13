@@ -46,6 +46,9 @@ docker-compose run --rm stack is-db create-oauth-client   --id console   --name 
 ```
 docker-compose up -d
 ```
+```
+stack is-db create-oauth-client   --id plant-browser   --name "plant-browser"   --owner admin   --secret topsecret   --redirect-uri "http://localhost:8080/#/geolocator"
+```
 
 ### Ports
 Service/Server | Port

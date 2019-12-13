@@ -42,12 +42,12 @@ echo "Working Directory: " $WORK_DIR
 git init
 git remote add origin -f https://github.com/GMouaad/HTWG_IoT_Solution.git
 git config core.sparseCheckout true
-echo "/Infrastructure" > .git/info/sparse-checkout
-git pull origin master
+echo "/src/Infrastructure" > .git/info/sparse-checkout
+git pull origin non-protected-Branch
 
 # Check if Docker is installed and running
 echo "Cheking if Docker is running.."
-sudo systemctl status docker | grep 'running' &> >/dev/null || startDocker # 2>&1
+sudo systemctl status docker | grep 'running' &> /dev/null || startDocker # 2>&1
 # If return value is 0, then it is installed
 if [ $? == 0 ]; then
     echo "Docker already running"

@@ -30,7 +30,7 @@ curl https://github.com/GMouaad/HTWG_IoT_Solution/raw/master/src/Services/Plant-
 
 # Check if docker is running
 echo "Cheking if Docker is running.."
-sudo systemctl status docker | grep 'running' &> >/dev/null || startDocker # 2>&1
+sudo systemctl status docker | grep 'running' &> /dev/null || startDocker # 2>&1
 # If return value is 0, then it is running
 if [ $? == 0 ]; then
     echo "Docker already running"
