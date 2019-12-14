@@ -40,7 +40,7 @@ services:
       HOST_PROC: /rootfs/proc
       HOST_SYS: /rootfs/sys
       HOST_ETC: /rootfs/etc
-    hostname: myHostServerName
+    hostname: ea-pc166.ei.htwg-konstanz.de
     network_mode: "host"
     pid: "host"
     volumes:
