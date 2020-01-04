@@ -18,8 +18,8 @@ broker:
 
 # TTN Applications and the corresponding API Keys
 applications:
-  app1: app1-key
-  app2: app1-key
+  app1: some-api-key-214335009
+  app2: some-api-key-769238943
 
 # For List use
 #List:

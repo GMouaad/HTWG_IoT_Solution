@@ -24,7 +24,7 @@ public class Broker {
 
     @Override
     public String toString() {
-        return "MQTT Broker on :" +
+        return "MQTT Broker on " +
                 "host=tcp://" + host + ":" + port + "\n";
     }
 }

@@ -38,7 +38,7 @@ public class ClientThread implements Runnable{
         connectionOpts.setAutomaticReconnect(true);
         connectionOpts.setUserName(ttnApp);
         connectionOpts.setPassword(ttnAppKey.toCharArray());
-        connectionOpts.setWill("/will", "Client got disconnected suddently".getBytes(), 2, true);
+        connectionOpts.setWill("/lastWill", "Client got disconnected suddently".getBytes(), 2, true);
         try {
             mqttClient = new MqttClient(broker, clientId, persistence);
         } catch (MqttException e) {
