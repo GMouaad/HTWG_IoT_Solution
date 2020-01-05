@@ -1,8 +1,19 @@
-oauth-server-address: 'http://ea-pc165.ei.htwg-konstanz.de/oauth'
+# When Using DNS
+#oauth-server-address: 'http://ea-pc165.ei.htwg-konstanz.de/oauth'
 
-identity-server-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
-gateway-server-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
-network-server-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
-application-server-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
-join-server-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
-device-template-converter-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
+#identity-server-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
+#gateway-server-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
+#network-server-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
+#application-server-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
+#join-server-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
+#device-template-converter-grpc-address: 'ea-pc165.ei.htwg-konstanz.de:8884'
+
+# Without DNS
+oauth-server-address: 'https://localhost/oauth'
+
+identity-server-grpc-address: 'localhost:8884'
+gateway-server-grpc-address: 'localhost:8884'
+network-server-grpc-address: 'localhost:8884'
+application-server-grpc-address: 'localhost:8884'
+join-server-grpc-address: 'localhost:8884'
+device-template-converter-grpc-address: 'localhost:8884'
