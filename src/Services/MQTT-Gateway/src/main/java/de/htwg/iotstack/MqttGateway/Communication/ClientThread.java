@@ -1,78 +1,86 @@
 package de.htwg.iotstack.MqttGateway.Communication;
 
+import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.DownlinkMessageProcessor;
+import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.IMessageProcessor;
+import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.JoinMessageProcessor;
+import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.UplinkMessageProcessor;
+import de.htwg.iotstack.MqttGateway.Management.main;
 import org.eclipse.paho.client.mqttv3.*;
 import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ * This Class acts as the Mqtt Client Thread, implementing the Runnable Interface.
+ * The Singelton aproach in not used, since multiple connections with different Authentications are needed.
+ *
+ */
 public class ClientThread implements Runnable{
     private static final String TAG = "ClientThread " + Thread.currentThread().getId();
+    Logger logger = null;
 
     private String host = "iot.eclipse.org";
     private String port = "1883";
     private String broker = "tcp://" + host + ":" + port;
     private String clientId = "a1"; //TODO: use Thread.currentThread().getId() ??
-    private String ttnApp;
-    private String ttnAppKey;
-    private String topicFilter;
-    private MemoryPersistence persistence;
-    private MqttConnectOptions connectionOpts;
-
+    private String ttnAppID = null;
+    private String ttnAppKey = null;
+    private String[] topicFilter = null;
+    Map<String, IMessageProcessor> dispatchMap = null;
+    private MemoryPersistence persistence = null;
+    private MqttConnectOptions connectionOpts = null;
     private boolean connectionStatus;
-
-    private MqttClient mqttClient;
+    private MqttClient mqttClient = null;
 
     public ClientThread(){
 
     }
 
-    public ClientThread(String host, String port, String clientId, String ttnApp, String ttnAppKey, String topicFilter) {
+    public ClientThread(String host, String port, String clientId, String ttnAppID, String ttnAppKey, String[] topicFilter) {
         this.host = host;
         this.port = port;
         this.clientId = clientId;
-        this.ttnApp = ttnApp;
+        this.ttnAppID = ttnAppID;
         this.ttnAppKey = ttnAppKey;
         this.topicFilter = topicFilter;
 
-        persistence = new MemoryPersistence();
-        connectionOpts = new MqttConnectOptions();
-        connectionOpts.setCleanSession(true);
-        connectionOpts.setAutomaticReconnect(true);
-        connectionOpts.setUserName(ttnApp);
-        connectionOpts.setPassword(ttnAppKey.toCharArray());
-        connectionOpts.setWill("/lastWill", "Client got disconnected suddently".getBytes(), 2, true);
-        try {
-            mqttClient = new MqttClient(broker, clientId, persistence);
-        } catch (MqttException e) {
-            e.printStackTrace();
-        }
-        mqttClient.setCallback(new ClientCallback());
-        // subscribe to /SysArch/V1/Driver/AuthResponse/
-        subscribe(topicFilter, 2);
+        this.logger = main.getLogger();
     }
 
     @Override
     public void run() {
+        init();
         connect();
+        subscribeAll(2);
     }
-    //public ClientThread(String host, String port, String clientID, MqttConnectOptions connectionOpts){
-
-    //}
 
     public void init(){
         try {
+
             persistence = new MemoryPersistence();
             connectionOpts = new MqttConnectOptions();
             connectionOpts.setCleanSession(true);
             connectionOpts.setAutomaticReconnect(true);
-            connectionOpts.setUserName(ttnApp);
+            connectionOpts.setUserName(ttnAppID);
             connectionOpts.setPassword(ttnAppKey.toCharArray());
             connectionOpts.setWill("/will", "Client got disconnected suddently".getBytes(), 2, true);
+
+            logger.log(Level.INFO, "Initiating Client Instance");
             mqttClient = new MqttClient(broker, clientId, persistence);
-            mqttClient.setCallback(new ClientCallback());
-            connect();
-            // subscribe to /SysArch/V1/Driver/AuthResponse/
-            subscribe(topicFilter, 2);
+
+            logger.log(Level.INFO, "Setting Callback");
+            this.dispatchMap = new HashMap<>();
+            dispatchMap.put("v3/" + ttnAppID + "/devices/+/join", new JoinMessageProcessor());
+            dispatchMap.put("v3/" + ttnAppID + "/devices/+/up", new UplinkMessageProcessor());
+            dispatchMap.put("v3/" + ttnAppID + "/devices/+/down/#", new DownlinkMessageProcessor());
+            mqttClient.setCallback(new ClientCallback(this.dispatchMap));
+
         } catch (MqttException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, e.getMessage());
+            logger.log(Level.SEVERE, "Cause: " + e.getCause());
         }
     }
 
@@ -88,17 +96,18 @@ public class ClientThread implements Runnable{
                 System.out.println(TAG + "MQTTClient is null !");
                 return false;
             } else if (!connectionStatus) {
-                System.out.println(TAG + "Trying to connect..");
+                logger.log(Level.INFO,TAG + "Trying to connect..");
                 IMqttToken iMqttToken = mqttClient.connectWithResult(connectionOpts);
                 iMqttToken.waitForCompletion();
                 boolean connectResponse = iMqttToken.getSessionPresent();
-                System.out.println(TAG + "Connection status: " + connectResponse);
+                logger.log(Level.INFO,TAG + "Connection status: " + connectResponse);
                 connectionStatus = connectResponse;
                 return connectResponse;
             }
             return false;
         } catch (MqttException e) {
-            e.printStackTrace();
+            logger.log(Level.SEVERE, e.getMessage());
+            logger.log(Level.SEVERE, "Cause: " + e.getCause());
             connectionStatus = false;
             return false;
         }
@@ -112,12 +121,34 @@ public class ClientThread implements Runnable{
     public void subscribe(String topic, int qos) {
         if (mqttClient != null && mqttClient.isConnected()) {
             try {
-                //mqttClient.connect(connOpts);
                 mqttClient.subscribe(topic, qos);
-                System.out.println(TAG + " Subscribed to " + topic);
-                //mqttClient.disconnect();
+
+                logger.log(Level.INFO,TAG + " Subscribed to " + topic);
             } catch (MqttException e) {
-                e.printStackTrace();
+                logger.log(Level.SEVERE, e.getMessage());
+                logger.log(Level.SEVERE, "Cause: " + e.getCause());
+                disconnect();
+                close();
+            }
+        }
+    }
+
+    /**
+     * This method checks the mqtt client connection and subscribes to a topic
+     * @param qos The quality of service
+     */
+    public void subscribeAll(int qos) {
+        if (mqttClient != null && mqttClient.isConnected()) {
+            try {
+                // iterate to subscribe to the different topics
+                for (String topic : topicFilter) {
+                    mqttClient.subscribe(topic, qos);
+                }
+
+                logger.log(Level.INFO,TAG + " Subscribed to " + topicFilter);
+            } catch (MqttException e) {
+                logger.log(Level.SEVERE, e.getMessage());
+                logger.log(Level.SEVERE, "Cause: " + e.getCause());
                 disconnect();
                 close();
             }
@@ -145,8 +176,9 @@ public class ClientThread implements Runnable{
                 mqttClient.publish(topic, message);
                 //mqttClient.disconnect();
             } catch (MqttException e) {
-                System.out.println(TAG + "Mqtt Exeption thrown");
-                e.printStackTrace();
+                logger.log(Level.SEVERE,TAG + "Mqtt Exeption thrown");
+                logger.log(Level.SEVERE, e.getMessage());
+                logger.log(Level.SEVERE, "Cause: " + e.getCause());
                 disconnect();
                 close();
             }
@@ -165,8 +197,9 @@ public class ClientThread implements Runnable{
             connectionStatus = false;
 
         } catch (MqttException e) {
-            System.out.println(TAG + "Exception when trying to disconnect the Mqtt Client");
-            e.printStackTrace();
+            logger.log(Level.SEVERE,TAG + "Exception when trying to disconnect the Mqtt Client");
+            logger.log(Level.SEVERE, e.getMessage());
+            logger.log(Level.SEVERE, "Cause: " + e.getCause());
         }
     }
 
@@ -177,18 +210,20 @@ public class ClientThread implements Runnable{
         if (connectionStatus) {
             disconnect();
             try {
-                System.out.println(TAG + "Closing Client..");
+                logger.log(Level.INFO,TAG + "Closing Client..");
                 mqttClient.close();
             } catch (MqttException e) {
-                System.out.println(TAG + "Exception when trying to close the Mqtt Client");
-                e.printStackTrace();
+                logger.log(Level.SEVERE,TAG + "Exception when trying to close the Mqtt Client");
+                logger.log(Level.SEVERE, e.getMessage());
+                logger.log(Level.SEVERE, "Cause: " + e.getCause());
             }
         } else {
             try {
                 mqttClient.close();
             } catch (MqttException e) {
                 System.out.println("Exception when trying to close the client");
-                e.printStackTrace();
+                logger.log(Level.SEVERE, e.getMessage());
+                logger.log(Level.SEVERE, "Cause: " + e.getCause());
             }
         }
     }
@@ -225,12 +260,12 @@ public class ClientThread implements Runnable{
         this.clientId = clientId;
     }
 
-    public String getTtnApp() {
-        return ttnApp;
+    public String getTtnAppID() {
+        return ttnAppID;
     }
 
-    public void setTtnApp(String ttnApp) {
-        this.ttnApp = ttnApp;
+    public void setTtnAppID(String ttnAppID) {
+        this.ttnAppID = ttnAppID;
     }
 
     public String getTtnAppKey() {
@@ -241,11 +276,11 @@ public class ClientThread implements Runnable{
         this.ttnAppKey = ttnAppKey;
     }
 
-    public String getTopicFilter() {
+    public String[] getTopicFilter() {
         return topicFilter;
     }
 
-    public void setTopicFilter(String topicFilter) {
+    public void setTopicFilter(String[] topicFilter) {
         this.topicFilter = topicFilter;
     }
 

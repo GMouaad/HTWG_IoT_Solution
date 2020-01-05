@@ -7,14 +7,18 @@ released: 2020-01-06
 loggerConfig:
   fileName: mqttGateway.log
   maxFileSize: 10000
-  maxNumberOfFiles: 3
+  maxNumberOfFiles: 10
   appendFiles: true
   debugLevel: ALL
 
 # MQTT Broker Config
 broker:
-  host: ea-pc165.ei.htwg-konstanz.de
+  # For Test
+  host: localhost
   port: 1883
+  # For Production
+  #host: ea-pc165.ei.htwg-konstanz.de
+  #port: 1883
 
 # TTN Applications and the corresponding API Keys
 applications:

@@ -1,41 +1,49 @@
 package de.htwg.iotstack.MqttGateway.Communication;
 
+import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.DownlinkMessageProcessor;
+import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.IMessageProcessor;
+import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.JoinMessageProcessor;
+import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.UplinkMessageProcessor;
+import de.htwg.iotstack.MqttGateway.Management.main;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ * This Class implements the MqttCallback Interface.
+ * Objects of this Class will be set to a MQTT Client to process the incoming Messages.
+ * Ref to : https://stackoverflow.com/questions/36477602/best-practices-in-handling-mqtt-messages-with-paho-java-library
+ * for best practices handling Mqtt Massages
+ */
 public class ClientCallback implements MqttCallback {
+
+    Logger logger = null;
+    Map<String, IMessageProcessor> dispatchMap = null;
+
+    public ClientCallback(Map<String, IMessageProcessor> dispatchMap) {
+        this.logger = main.getLogger();
+        this.dispatchMap = dispatchMap;
+    }
 
     @Override
     public void connectionLost(Throwable throwable) {
-        System.out.println("Lost Connection to the server !..");
-        System.out.println(throwable.getStackTrace());
-        System.out.println("Cause: " + throwable.getCause());
-
-        // TODO: Log Severe Error
-
-
+        logger.log(Level.SEVERE,"Lost Connection to the server !..");
+        logger.log(Level.SEVERE, throwable.getMessage());
+        logger.log(Level.SEVERE, "Cause: " + throwable.getCause());
     }
 
     @Override
     public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
-        /* Check if topic is: /V1/Driver/AuthResponse/ */
-        System.out.println("Msg received on :" + topic + " :" + mqttMessage.toString());
-        if (topic.equals("/SysArch/V1/Driver/AuthResponse/")) {
-            // convert String to Pojo
-            /*Driver allowedDriver = new Driver();
-            String driverMsg = new String(mqttMessage.getPayload());
-            System.out.println("Driver Json: " + driverMsg);
-            allowedDriver = (Driver) Converter.json2pojo(driverMsg, allowedDriver);
-            System.out.println("Driver: " + allowedDriver);
-            if (!allowedDriver.getFirstName().isEmpty()){
-                ManagementThread.updateDriver(true, allowedDriver);
-            }
-            */
 
+        logger.log(Level.INFO, "mqttMessage received on :" + topic + " :" + mqttMessage.toString());
 
-        }
-
+        /* Check if topic is <pattern> */
+        dispatchMap.get(topic).processMessage(topic, mqttMessage);
 
     }
 
