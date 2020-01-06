@@ -41,7 +41,7 @@ docker-compose run --rm stack is-db create-admin-user   --id admin   --email M.G
 docker-compose run --rm stack is-db create-oauth-client   --id cli   --name "Command Line Interface"   --owner admin   --no-secret   --redirect-uri "local-callback"   --redirect-uri "code"
 ```
 ```
-docker-compose run --rm stack is-db create-oauth-client   --id console   --name "Console"   --owner admin   --secret topsecret   --redirect-uri "https://localhost/console/oauth/callback"   --redirect-uri "/console/oauth/callback"
+docker-compose run --rm stack is-db create-oauth-client   --id console   --name "Console"   --owner admin   --secret topsecret  --redirect-uri "https://localhost/console/oauth/callback" --redirect-uri "https://localhost:1885/console/oauth/callback" --redirect-uri "https://localhost:8885/console/oauth/callback"  --redirect-uri "/console/oauth/callback"
 ```
 ```
 docker-compose up -d
