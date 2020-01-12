@@ -3,10 +3,7 @@ package de.htwg.iotstack.MqttGateway.Management;
 import de.htwg.iotstack.MqttGateway.Communication.ClientThread;
 import de.htwg.iotstack.MqttGateway.Configuration.Configuration;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,7 +11,7 @@ public class Manager {
     private Logger logger;
     private Configuration configuration;
     private Map< String, String > applications;
-    private List<ClientThread> clientThreads;
+    private List<ClientThread> clientThreads = new ArrayList<ClientThread>();
     private String host;
     private String port;
 
@@ -28,6 +25,7 @@ public class Manager {
         this.applications = configuration.getApplications();
         this.host = configuration.getBroker().getHost();
         this.port = configuration.getBroker().getPort();
+        logger.log(Level.INFO,"Initializing Clients to connect to " + configuration.getBroker().toString());
         String[] topicFilter = null;
         logger.log(Level.INFO,"Available Applications:\n");
         // iterate to initialize Theads
@@ -38,19 +36,42 @@ public class Manager {
             Map.Entry pair = (Map.Entry)it.next();
             String ttnAppID = pair.getKey().toString();
             String ttnAppKey = pair.getValue().toString();
-            logger.log(Level.INFO,pair.getKey() + " w/ API-Key " + pair.getValue());
-            topicFilter = new String[]{
-                    "v3/" + ttnAppID + "/devices/+/join",
-                    "v3/" + ttnAppID + "/devices/+/up",
-                    "v3/" + ttnAppID + "/devices/+/down/#"
-            };
-            clientThreads.add(new ClientThread(host,
-                    port,
-                    "MQTT-Gateway--" + UUID.randomUUID().toString(),
-                    ttnAppID, // ttnAppID
-                    ttnAppKey, // ttnAppKey
-                    topicFilter));
+            logger.log(Level.INFO,ttnAppID + " w/ API-Key " + ttnAppKey);
+            topicFilter = getTopicFilter(ttnAppID);
+            logger.log(Level.INFO, "Topics:\n");
+            for (String topic : topicFilter
+                 ) {
+                logger.log(Level.INFO, topic);
+            }
+            try {
+                clientThreads.add(new ClientThread(this.host,
+                        this.port,
+                        ttnAppID, // ttnAppID
+                        ttnAppKey, // ttnAppKey
+                        topicFilter));
+            } catch (Exception e) {
+                logger.log(Level.SEVERE, "Exception: " + e);
+            }
             it.remove(); // avoids a ConcurrentModificationException
+        }
+        //TODO: call ClientThread.init() here or Leave it in run() ??
+    }
+
+    private String[] getTopicFilter(String ttnAppID) {
+        String[] topicFilter;
+        topicFilter = new String[]{
+                "v3/" + ttnAppID + "/devices/+/join",
+                "v3/" + ttnAppID + "/devices/+/up",
+                "v3/" + ttnAppID + "/devices/+/down/#"
+        };
+        return topicFilter;
+    }
+
+    public void start(){
+        logger.log(Level.INFO,"Starting the ClientThreads");
+        // iterate to start all Threads
+        for (ClientThread thread: this.clientThreads) {
+            thread.run();
         }
     }
 }

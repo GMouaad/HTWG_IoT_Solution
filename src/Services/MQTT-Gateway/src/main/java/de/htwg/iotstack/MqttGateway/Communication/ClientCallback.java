@@ -33,8 +33,7 @@ public class ClientCallback implements MqttCallback {
     @Override
     public void connectionLost(Throwable throwable) {
         logger.log(Level.SEVERE,"Lost Connection to the server !..");
-        logger.log(Level.SEVERE, throwable.getMessage());
-        logger.log(Level.SEVERE, "Cause: " + throwable.getCause());
+        logger.log(Level.SEVERE, "Throwable: " + throwable);
     }
 
     @Override
@@ -43,8 +42,8 @@ public class ClientCallback implements MqttCallback {
         logger.log(Level.INFO, "mqttMessage received on :" + topic + " :" + mqttMessage.toString());
 
         /* Check if topic is <pattern> */
-        dispatchMap.get(topic).processMessage(topic, mqttMessage);
-
+        //dispatchMap.get(topic).processMessage(topic, mqttMessage);
+        //TODO: This will probably not work for the moment, the topics will not match
     }
 
     @Override

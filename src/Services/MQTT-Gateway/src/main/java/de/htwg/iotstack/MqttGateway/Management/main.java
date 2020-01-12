@@ -44,7 +44,11 @@ public class main {
         logger.info("Initiating the Instances");
         manager = new Manager(configuration);
 
+        logger.log(Level.INFO,"Initializing..");
         manager.init();
+
+        logger.log(Level.INFO,"Starting..");
+        manager.start();
 
     }
 
