@@ -48,12 +48,16 @@ public class Logging {
             LOGGER.addHandler(fh);
 
             fh.setFormatter(new SimpleFormatter() {
-                private static final String format = "[%1$tF %1$tT] [%2$-7s] %3$s%n %4$s %n";
+                private static final String format = "[%1$tF %1$tT] %2$s%n [%3$-7s] %4$s %n"; // add %5$s for Throwable
 
                 @Override
                 public synchronized String format(LogRecord lr) {
-                    return String.format(format, new Date(lr.getMillis()), lr.getLevel().getLocalizedName(),
-                            lr.getMessage(), lr.getThrown());
+                    return String.format(format,
+                            new Date(lr.getMillis()),           // %1
+                            lr.getSourceClassName() + " " + lr.getSourceMethodName() ,            // %2
+                            lr.getLevel().getLocalizedName(),   // %3
+                            lr.getMessage(),                    // %4
+                            lr.getThrown());                    // %5
 
                 }
             });

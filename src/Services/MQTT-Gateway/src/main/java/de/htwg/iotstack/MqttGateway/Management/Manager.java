@@ -38,11 +38,8 @@ public class Manager {
             String ttnAppKey = pair.getValue().toString();
             logger.log(Level.INFO,ttnAppID + " w/ API-Key " + ttnAppKey);
             topicFilter = getTopicFilter(ttnAppID);
-            logger.log(Level.INFO, "Topics:\n");
-            for (String topic : topicFilter
-                 ) {
-                logger.log(Level.INFO, topic);
-            }
+            logger.log(Level.INFO, "Topics:");
+            logger.log(Level.INFO, Arrays.deepToString(topicFilter));
             try {
                 clientThreads.add(new ClientThread(this.host,
                         this.port,
