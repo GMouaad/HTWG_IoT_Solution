@@ -25,6 +25,9 @@ Ubuntu (tested on 14.04) has package called redis-tools which contains redis-
 ```
 sudo apt-get install redis-tools
 ```
+#### Install TTN Stack
+ - Configure the Stack in the docker-compose.yml file
+ - cd to the directory of the file and run the following cmds. Or use the -f <path/to/file.yml> argument
 
 ```
 docker-compose pull
@@ -41,11 +44,18 @@ docker-compose run --rm stack is-db create-admin-user   --id admin   --email M.G
 docker-compose run --rm stack is-db create-oauth-client   --id cli   --name "Command Line Interface"   --owner admin   --no-secret   --redirect-uri "local-callback"   --redirect-uri "code"
 ```
 ```
-docker-compose run --rm stack is-db create-oauth-client   --id console   --name "Console"   --owner admin   --secret topsecret  --redirect-uri "https://localhost/console/oauth/callback" --redirect-uri "https://localhost:1885/console/oauth/callback" --redirect-uri "https://localhost:8885/console/oauth/callback"  --redirect-uri "/console/oauth/callback"
+docker-compose run --rm stack is-db create-oauth-client   --id console   --name "Console"   --owner admin   --secret console  --redirect-uri  --redirect-uri "http://localhost:1885/console/oauth/callback" --redirect-uri "https://localhost:8885/console/oauth/callback"  --redirect-uri "/console/oauth/callback"
 ```
+
+or
+```
+docker-compose run --rm stack is-db create-oauth-client   --id console   --name "Console"   --owner admin   --secret console  --redirect-uri  --redirect-uri "http://192.168.200.98:1885/console/oauth/callback" --redirect-uri "https://192.168.200.98:8885/console/oauth/callback"  --redirect-uri "/console/oauth/callback"
+```
+
 ```
 docker-compose up -d
 ```
+
 ```
 stack is-db create-oauth-client   --id plant-browser   --name "plant-browser"   --owner admin   --secret topsecret   --redirect-uri "http://localhost:8080/#/geolocator"
 ```
