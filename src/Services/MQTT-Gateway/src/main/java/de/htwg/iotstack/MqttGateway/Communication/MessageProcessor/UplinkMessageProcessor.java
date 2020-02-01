@@ -15,7 +15,7 @@ public class UplinkMessageProcessor implements IMessageProcessor {
     }
 
     @Override
-    public void processMessage(String topic, MqttMessage message) throws Exception {
+    public void processMessage(MqttMessage message) throws Exception {
         //TODO: SDo smth with Uplink Payload
         logger.log(Level.INFO, "Uplink Message arrived" + message.toString());
     }

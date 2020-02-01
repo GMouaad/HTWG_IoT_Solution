@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * This Class implements the MqttCallback Interface.
@@ -24,6 +26,12 @@ public class ClientCallback implements MqttCallback {
 
     Logger logger = null;
     Map<String, IMessageProcessor> dispatchMap = null;
+    private String app_id;
+    private String dev_id;
+    private String msgType;
+
+    private String regex = "v3/(?<app>.*?)/devices/(?<device>.*?)/(?:(?<type>[\\w&&[^/]]*)(/.*?)?)";
+    private Pattern pattern = Pattern.compile(regex);
 
     public ClientCallback(Map<String, IMessageProcessor> dispatchMap) {
         this.logger = main.getLogger();
@@ -42,12 +50,33 @@ public class ClientCallback implements MqttCallback {
         logger.log(Level.INFO, "mqttMessage received on :" + topic + " :" + mqttMessage.toString());
 
         /* Check if topic is <pattern> */
-        //dispatchMap.get(topic).processMessage(topic, mqttMessage);
-        //TODO: This will probably not work for the moment, the topics will not match
+        if(matchTopic(topic,regex)){
+            logger.log(Level.INFO, "Dispatching to " + this.msgType + "-MessageProcessor");
+            dispatchMap.get(this.msgType).processMessage(mqttMessage);
+        }
+
     }
 
     @Override
     public void deliveryComplete(IMqttDeliveryToken iMqttDeliveryToken) {
 
+    }
+
+    public boolean matchTopic(String topic, String regex){
+        Matcher matcher = pattern.matcher(topic);
+
+        while(matcher.find()){
+            this.app_id = matcher.group("app");
+            this.dev_id = matcher.group("device");
+            this.msgType = matcher.group("type");
+
+            //System.out.println("count: " + matcher.groupCount());
+            logger.log(Level.INFO,"App-id: " + this.app_id
+                    + " Device-id: " + this.dev_id
+                    + " msgType: " + this.msgType
+                    + " /msgType2 : "+matcher.group(4));
+        }
+
+        return matcher.matches();
     }
 }

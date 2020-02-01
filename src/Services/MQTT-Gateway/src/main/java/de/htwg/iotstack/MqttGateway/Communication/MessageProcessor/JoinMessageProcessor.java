@@ -14,7 +14,7 @@ public class JoinMessageProcessor implements IMessageProcessor{
     }
 
     @Override
-    public void processMessage(String topic, MqttMessage message) throws Exception {
+    public void processMessage(MqttMessage message) throws Exception {
         //TODO: SDo smth with Join Payload
         logger.log(Level.INFO, "Join Message arrived" + message.toString());
     }

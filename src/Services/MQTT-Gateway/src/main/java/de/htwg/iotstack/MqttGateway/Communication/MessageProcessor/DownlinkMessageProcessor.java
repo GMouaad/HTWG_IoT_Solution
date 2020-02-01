@@ -14,7 +14,7 @@ public class DownlinkMessageProcessor implements IMessageProcessor {
     }
 
     @Override
-    public void processMessage(String topic, MqttMessage message) throws Exception {
+    public void processMessage(MqttMessage message) throws Exception {
         //TODO: SDo smth with Down Payload
         logger.log(Level.INFO, "Down Message arrived" + message.toString());
     }

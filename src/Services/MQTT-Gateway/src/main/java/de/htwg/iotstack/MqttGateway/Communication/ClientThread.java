@@ -53,7 +53,11 @@ public class ClientThread implements Runnable{
     @Override
     public void run() {
         while(true){
-
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             if ( mqttClient == null ){
                 init();
                 connect();
@@ -62,11 +66,7 @@ public class ClientThread implements Runnable{
                 connect();
                 subscribeAll(2);
             }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
         }
     }
 
@@ -84,9 +84,9 @@ public class ClientThread implements Runnable{
             //TODO: delete this when the broker has restrictions!
             connectionOpts.setWill("/will", "Client got disconnected suddently".getBytes(), 2, true);
             this.dispatchMap = new HashMap<>();
-            dispatchMap.put("v3/" + ttnAppID + "/devices/+/join", new JoinMessageProcessor());
-            dispatchMap.put("v3/" + ttnAppID + "/devices/+/up", new UplinkMessageProcessor());
-            dispatchMap.put("v3/" + ttnAppID + "/devices/+/down/#", new DownlinkMessageProcessor());
+            dispatchMap.put("join", new JoinMessageProcessor());
+            dispatchMap.put("up", new UplinkMessageProcessor());
+            dispatchMap.put("down", new DownlinkMessageProcessor());
     }
 
     /**
