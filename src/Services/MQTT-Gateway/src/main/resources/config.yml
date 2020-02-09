@@ -1,7 +1,7 @@
 # Example in https://dzone.com/articles/using-yaml-java-application
 
-version: 1.0.x
-released: 2020-01-06
+version: 1.1.x
+released: 2020-02-12
 
 # Logging Configuration
 loggerConfig:
@@ -17,8 +17,19 @@ broker:
   host: 127.0.0.1
   port: 9883
   # For Production
-  #host: ea-pc165.ei.htwg-konstanz.de
-  #port: 1883
+  # host: ea-pc165.ei.htwg-konstanz.de
+  # port: 1883
+  # From docker container
+  # host:
+  # port: 8883
+
+database:
+  host: 127.0.0.1
+  port: 8086
+  username: aut_labor
+  password: secret
+  name: aut-labor-db
+
 
 # TTN Applications and the corresponding API Keys
 applications:

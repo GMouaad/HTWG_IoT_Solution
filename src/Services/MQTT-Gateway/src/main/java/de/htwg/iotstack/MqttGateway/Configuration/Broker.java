@@ -1,8 +1,7 @@
 package de.htwg.iotstack.MqttGateway.Configuration;
 
-import java.security.PrivateKey;
-
 public class Broker {
+
     private String host;
     private String port;
 

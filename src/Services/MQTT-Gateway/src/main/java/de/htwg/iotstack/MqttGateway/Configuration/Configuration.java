@@ -10,6 +10,7 @@ public class Configuration {
     private String version;
     private LoggerConfig loggerConfig;
     private Broker broker;
+    private Database database;
     private Map< String, String > applications;
 
     public Date getReleased() {
@@ -44,6 +45,14 @@ public class Configuration {
         this.broker = broker;
     }
 
+    public Database getDatabase() {
+        return database;
+    }
+
+    public void setDatabase(Database database) {
+        this.database = database;
+    }
+
     public Map<String, String> getApplications() {
         return applications;
     }
@@ -60,6 +69,7 @@ public class Configuration {
                         .append( format( "Released: %s\n", released ) )
                         .append( loggerConfig.toString() )
                         .append( broker.toString() )
+                        .append( database.toString() )
                         .append( format( "Applications: %s\n", applications ) )
                         .toString();
     }

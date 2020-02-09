@@ -44,10 +44,10 @@ public class main {
         logger.info("Initiating the Instances");
         manager = new Manager(configuration);
 
-        logger.log(Level.INFO,"Initializing..");
+        logger.log(Level.INFO,"Initializing Manager .. ");
         manager.init();
 
-        logger.log(Level.INFO,"Starting..");
+        logger.log(Level.INFO,"Starting Instances .. ");
         manager.start();
 
     }
@@ -62,7 +62,7 @@ public class main {
         } catch (Exception ex) {
             System.out.println( "Error while trying to read config file" + ex);
         }
-        return null; // TODO : best practice return
+        return null; // TODO : best practice return?
     }
 
     private static Configuration setup() {
@@ -75,7 +75,7 @@ public class main {
         } catch (Exception ex) {
             System.out.println( "Error while trying to read config file" + ex);
         }
-        return null; // TODO : best practice return
+        return null; // TODO : best practice return?
     }
 
     public static Configuration getConfiguration() {
