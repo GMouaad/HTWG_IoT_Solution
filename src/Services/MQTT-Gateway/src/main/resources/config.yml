@@ -28,7 +28,7 @@ database:
   port: 8086
   username: aut_labor
   password: secret
-  name: aut-labor-db
+  name: aut_labor_db
 
 
 # TTN Applications and the corresponding API Keys

@@ -52,7 +52,8 @@ public class ClientCallback implements MqttCallback {
         /* Check if topic is <pattern> */
         if (matchTopic(topic,regex)){
             logger.log(Level.INFO, "Dispatching to " + this.msgType + "-MessageProcessor");
-            dispatchMap.get(this.msgType).processMessage(mqttMessage);
+            // dispatchMap.get(this.msgType).processMessage(mqttMessage.toString());
+            dispatchMap.get(this.msgType).processMessage(app_id, dev_id, mqttMessage.toString());
         } else {
             logger.log(Level.INFO, "Msg didn't match.\n " + mqttMessage.toString());
         }

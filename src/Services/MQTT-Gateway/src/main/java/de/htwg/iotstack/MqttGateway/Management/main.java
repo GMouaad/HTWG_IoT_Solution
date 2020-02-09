@@ -1,6 +1,7 @@
 package de.htwg.iotstack.MqttGateway.Management;
 
 import de.htwg.iotstack.MqttGateway.Configuration.Configuration;
+import de.htwg.iotstack.MqttGateway.Persistence.DBController;
 import de.htwg.iotstack.MqttGateway.Util.Banner;
 import de.htwg.iotstack.MqttGateway.Util.Logging;
 import org.yaml.snakeyaml.Yaml;
@@ -15,6 +16,7 @@ public class main {
     private static Logger logger;
     private static Configuration configuration;
     private static Manager manager;
+    private static DBController dbController = null;
 
     /**
      *  This is the Main function acting as en entry of the application
@@ -38,6 +40,8 @@ public class main {
 
         logger.info("Initiating the Instances");
         manager = new Manager(configuration);
+        dbController = DBController.getInstance();
+        dbController.setup();
 
         logger.log(Level.INFO,"Initializing Manager .. ");
         manager.init();
