@@ -5,13 +5,8 @@ import de.htwg.iotstack.MqttGateway.Util.Banner;
 import de.htwg.iotstack.MqttGateway.Util.Logging;
 import org.yaml.snakeyaml.Yaml;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Paths;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

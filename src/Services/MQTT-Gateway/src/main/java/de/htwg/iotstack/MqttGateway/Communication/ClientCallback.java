@@ -30,7 +30,7 @@ public class ClientCallback implements MqttCallback {
     private String dev_id;
     private String msgType;
 
-    private String regex = "v3/(?<app>.*?)/devices/(?<device>.*?)/(?:(?<type>[\\w&&[^/]]*)(/.*?)?)";
+    private String regex = "v3/(?<app>.*?)/devices/(?<device>.*?)/(?:(?<type>[\\w&&[^/]]*)/?(?<downType>.*?)?)";
     private Pattern pattern = Pattern.compile(regex);
 
     public ClientCallback(Map<String, IMessageProcessor> dispatchMap) {
@@ -47,12 +47,14 @@ public class ClientCallback implements MqttCallback {
     @Override
     public void messageArrived(String topic, MqttMessage mqttMessage) throws Exception {
 
-        logger.log(Level.INFO, "mqttMessage received on :" + topic + " :" + mqttMessage.toString());
+        logger.log(Level.INFO, "mqttMessage received on :" + topic);
 
         /* Check if topic is <pattern> */
-        if(matchTopic(topic,regex)){
+        if (matchTopic(topic,regex)){
             logger.log(Level.INFO, "Dispatching to " + this.msgType + "-MessageProcessor");
             dispatchMap.get(this.msgType).processMessage(mqttMessage);
+        } else {
+            logger.log(Level.INFO, "Msg didn't match.\n " + mqttMessage.toString());
         }
 
     }
@@ -74,7 +76,7 @@ public class ClientCallback implements MqttCallback {
             logger.log(Level.INFO,"App-id: " + this.app_id
                     + " Device-id: " + this.dev_id
                     + " msgType: " + this.msgType
-                    + " /msgType2 : "+matcher.group(4));
+                    + " /msgType2 : "+matcher.group("downType"));
         }
 
         return matcher.matches();

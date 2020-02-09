@@ -27,7 +27,7 @@ public class Manager {
         this.port = configuration.getBroker().getPort();
         logger.log(Level.INFO,"Initializing Clients to connect to " + configuration.getBroker().toString());
         String[] topicFilter = null;
-        logger.log(Level.INFO,"Available Applications:\n");
+        logger.log(Level.INFO,"Available Applications: ");
         // iterate to initialize Theads
         // ref https://stackoverflow.com/questions/1066589/iterate-through-a-hashmap
         // for more options or efficiency comparison

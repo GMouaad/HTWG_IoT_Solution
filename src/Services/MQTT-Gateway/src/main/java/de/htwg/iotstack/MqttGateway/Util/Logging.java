@@ -3,11 +3,8 @@ package de.htwg.iotstack.MqttGateway.Util;
 import de.htwg.iotstack.MqttGateway.Configuration.LoggerConfig;
 import de.htwg.iotstack.MqttGateway.Management.main;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Date;
-import java.util.Properties;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
