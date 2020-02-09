@@ -8,6 +8,7 @@ import static java.lang.String.format;
 public class Configuration {
     private Date released;
     private String version;
+    private String regex;
     private LoggerConfig loggerConfig;
     private Broker broker;
     private Database database;
@@ -27,6 +28,14 @@ public class Configuration {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getRegex() {
+        return regex;
+    }
+
+    public void setRegex(String regex) {
+        this.regex = regex;
     }
 
     public LoggerConfig getLoggerConfig() {

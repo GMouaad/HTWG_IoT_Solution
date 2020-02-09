@@ -1,15 +1,11 @@
 package de.htwg.iotstack.MqttGateway.Communication;
 
-import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.DownlinkMessageProcessor;
 import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.IMessageProcessor;
-import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.JoinMessageProcessor;
-import de.htwg.iotstack.MqttGateway.Communication.MessageProcessor.UplinkMessageProcessor;
 import de.htwg.iotstack.MqttGateway.Management.main;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,12 +26,14 @@ public class ClientCallback implements MqttCallback {
     private String dev_id;
     private String msgType;
 
-    private String regex = "v3/(?<app>.*?)/devices/(?<device>.*?)/(?:(?<type>[\\w&&[^/]]*)/?(?<downType>.*?)?)";
-    private Pattern pattern = Pattern.compile(regex);
+    private String regex;// = "v3/(?<app>.*?)/devices/(?<device>.*?)/(?:(?<type>[\\w&&[^/]]*)/?(?<downType>.*?)?)";
+    private Pattern pattern;
 
     public ClientCallback(Map<String, IMessageProcessor> dispatchMap) {
         this.logger = main.getLogger();
         this.dispatchMap = dispatchMap;
+        this.regex = main.getConfiguration().getRegex();
+        this.pattern = Pattern.compile(regex);
     }
 
     @Override

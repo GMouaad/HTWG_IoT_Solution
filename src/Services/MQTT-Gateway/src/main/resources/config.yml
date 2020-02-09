@@ -36,6 +36,9 @@ applications:
   test-user-app: some-api-key-214335009
   test-user-app2: some-api-key-769238943
 
+# MQTT Topics regex
+regex: v3/(?<app>.*?)/devices/(?<device>.*?)/(?:(?<type>[\w&&[^/]]*)/?(?<downType>.*?)?)
+
 # For List use
 #List:
 #  - element1
