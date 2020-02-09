@@ -12,16 +12,15 @@ Alternatibevely tou can clone the hole Repository and run the "installAll.sh" Sc
 ## Architecture
 The Stack is based on the Micro-services architectural Pattern
 ### Infrastructure Layer
- - InfluxDB
- - Grafana
- - Telegraf
- - H2 Database Engine
- - System Monitoring
+ - System Monitoring ( InfluxDB - Grafana - Telegraf)
+ - TTN Stack (Netwerk Server)
+ - CockroachDB (mainly for TTN Stack)
+ - Redis (Mainly for TTN Stack)
  
 ### Application Layer
- - Asset Management Service
+ - MQTT-Connector
  - API-Adater(s)
  
 ### Business Layer
  - Plant-Browser
- - Operational Monitoring
+ - Operational Monitoring (InfluxDB - Grafana)
