@@ -1,7 +1,7 @@
 # Example in https://dzone.com/articles/using-yaml-java-application
 
 version: 1.1.2
-released: 2020-02-12
+released: 2020-02-10
 
 # Logging Configuration
 loggerConfig:
@@ -14,11 +14,11 @@ loggerConfig:
 # MQTT Broker Config
 broker:
   # For Dev
-  host: 127.0.0.1
-  port: 9883
+  host: local_mosquitto
+  port: 1883
   # For Production
-  # host: ea-pc165.ei.htwg-konstanz.de
-  # port: 8883
+  #host: ea-pc165.ei.htwg-konstanz.de
+  #port: 8883
   # From docker container
   # host: ttn_stack
   # port: 8883
@@ -32,11 +32,10 @@ database:
   password: secret
   name: aut_labor_db
 
-
 # TTN Applications and the corresponding API Keys
 applications:
-  test-user-app: some-api-key-214335009
-  test-user-app2: some-api-key-769238943
+  test-user-app: NNSXS.AY4E4ULPMZ6D6HJAFQ6EDAT5Q7L452YZTS4RZHA.3UVBF7VLN54UVI2YMF2EWCKQMRP7QFCGXYJXKETNDF6VH2R42TIA
+  test-user-app2: NNSXS.XVTV3ZDWD6I77NML7O23UON73BRDLHYBSMRVOTQ.RWCM2CEN33GQKLPGELUJN7P7J5IUXJZEOITIH5PSHHJBETE77RRA
 
 # MQTT Topics regex
 regex: v3/(?<app>.*?)/devices/(?<device>.*?)/(?:(?<type>[\w&&[^/]]*)/?(?<downType>.*?)?)

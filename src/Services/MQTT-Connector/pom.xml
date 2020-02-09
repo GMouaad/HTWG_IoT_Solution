@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.htwg.iotstack</groupId>
-    <artifactId>MQTT-Gateway</artifactId>
-    <version>1.0.1</version>
+    <artifactId>MQTT-Connector</artifactId>
+    <version>1.1.2</version>
     <packaging>jar</packaging>
 
     <properties>
