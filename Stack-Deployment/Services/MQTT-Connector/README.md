@@ -15,6 +15,8 @@ This Service acts as a Message processor. It subscribes to the topics of the giv
 ### Run the image
 ```docker run -d -v "$(pwd)"/config.yml:/home/MQTT-Connector/config.yml --name MQTT-connector  mqtt-connector```
 
+The z option indicates that the bind mount content is shared among multiple containers.
+
 ### Rebuild if the Application changed (new version)
 ```docker rmi mqtt-connector```
 ```docker build -t mqtt-connector .```
