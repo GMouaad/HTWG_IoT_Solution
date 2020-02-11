@@ -26,6 +26,7 @@ broker:
 database:
   # From docker container
   # host: influxdb
+  # For normal Use
   host: 127.0.0.1
   port: 8086
   username: aut_labor
