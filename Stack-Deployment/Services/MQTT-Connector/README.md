@@ -13,7 +13,7 @@ This Service acts as a Message processor. It subscribes to the topics of the giv
 ```docker image build -t mqtt-connector .```
 
 ### Run the image
-```docker run --name my-mqtt-connector mqtt-connector```
+```docker run -d -v "$(pwd)"/config.yml:/home/MQTT-Connector/config.yml --name MQTT-connector  mqtt-connector```
 
 ### Rebuild if the Application changed (new version)
 ```docker rmi mqtt-connector```
