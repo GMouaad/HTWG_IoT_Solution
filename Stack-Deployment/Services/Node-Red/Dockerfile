@@ -1,7 +1,6 @@
 FROM 	nodered/node-red:latest-minimal
 LABEL maintainer="M.Gssair@htwg-konstanz.de"
 EXPOSE 	8880
-EXPOSE  1700/udp
 RUN npm install node-red-contrib-influxdb
 #RUN npm install node-red-contrib-opcua
 COPY settings.js /data
