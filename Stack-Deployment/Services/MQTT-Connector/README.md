@@ -1,5 +1,5 @@
 # MQTT-Gateway
-This Service acts as a Message processor. It subscribes to the topics of the given TTN Application in the config file, logs the messages, and (still to be implemented evtl.) persists the data in the InfluxDB Time-Series Database. 
+This Service acts as a Message processor. It subscribes to the topics of the given TTN Application in the config file, logs the messages, and persists the data in the InfluxDB Time-Series Database. 
 
 ## Dependencies
  - This Service depends on the MQTT Broker from where the data comes

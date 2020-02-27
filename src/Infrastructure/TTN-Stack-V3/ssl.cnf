@@ -73,7 +73,7 @@ nsComment           = "OpenSSL Generated Certificate"
 
 [ alternate_names ]
 
-DNS.1       = ea-pc.166.ei.htwg-konstanz.de
+DNS.1       = wireless-iot-pc.aut.ei.htwg-konstanz.de
 DNS.2       = localhost
 DNS.3       = 192.168.200.98
 DNS.7       = 0.0.0.0

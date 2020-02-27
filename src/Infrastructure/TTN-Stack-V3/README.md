@@ -49,7 +49,7 @@ docker-compose run --rm stack is-db create-oauth-client   --id console   --name 
 
 or
 ```
-docker-compose run --rm stack is-db create-oauth-client   --id console   --name "Console"   --owner admin   --secret console  --redirect-uri  --redirect-uri "http://192.168.200.98:1885/console/oauth/callback" --redirect-uri "https://192.168.200.98:8885/console/oauth/callback"  --redirect-uri "/console/oauth/callback"
+docker-compose run --rm stack is-db create-oauth-client   --id console   --name "Console"   --owner admin   --secret console  --redirect-uri  --redirect-uri "http://wireless-iot-pc.aut.ei.htwg-konstanz.de:1885/console/oauth/callback" --redirect-uri "https://wireless-iot-pc.aut.ei.htwg-konstanz.de:8885/console/oauth/callback"  --redirect-uri "/console/oauth/callback"
 ```
 
 ```
